@@ -39,3 +39,12 @@ window.onclick = function(event) {
 }
 
 window.onload = logout();
+
+// $(document).ready(function() {
+//     $('#email_btn').click(function() {
+//         $('#emailForm').attr('action',
+//             'mailto:andrewwu014@gmail.com?subject=' +
+//             $('#feedbackName').val() + '&body=' + $('#feedbackContent').val());
+//         $('#emailForm').submit();
+//     });
+// });

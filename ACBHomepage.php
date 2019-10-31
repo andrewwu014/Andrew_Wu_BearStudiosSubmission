@@ -1,3 +1,4 @@
+<!-- Citation: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_band&stacked=h -->
 <?php
 ini_set("session.cookie_httponly", 1);
 session_start();
@@ -170,17 +171,10 @@ require 'database2.php'
                 <div class="row-padding padding-32" style="margin:0 -16px">
                     <div class="container white">
                         <br><br>
-                        <form action="/action_page.php" target="_blank">
-                            <div class="row-padding" style="margin:0 -16px 8px -16px">
-                                <div class="half">
-                                <input class="input border" type="text" placeholder="Name" required name="Name">
-                                </div>
-                                <div class="half">
-                                <input class="input border" type="text" placeholder="Email" required name="Email">
-                                </div>
-                            </div>
-                            <input class="input border" type="text" placeholder="Message" required name="Message"><br>
-                            <button class="button black margin-bottom" type="submit">SEND</button>
+                        <form method="POST" action='ACBmail.php'>
+                            <input class="input border" type="text" name= "feedbackName" placeholder="Name" required><br>
+                            <input class="input border" type="text" name="feedbackContent" placeholder="Message" required><br>
+                            <button type="submit" class="button black margin-bottom" id="email_btn">SEND</button>
                         </form>
                     </div>
                 </div>
@@ -197,9 +191,11 @@ require 'database2.php'
                 <h2 class="wide"><i class="margin-right"></i>Tickets</h2>
             </header>
             <div class="container">
-                <p><label><i class="fa fa-user"></i>Email Address:</label></p>
-                <input class="input border" type="text" id="email" placeholder="Enter email">
-                <button id="pay_btn" class="button block teal padding-16 section right">PAY <i class="fa fa-check"></i></button>
+                <form method="POST" action="ACBTicket.php">
+                    <p>Email Address (Make sure to check spam!) :</p>
+                    <input class="input border" type="text" name="email" placeholder="Enter email">
+                    <button type="submit" id="pay_btn" class="button block teal padding-16 section right">PAY <i class="fa fa-check"></i></button>
+                </form>
             </div>
         </div>
     </div>

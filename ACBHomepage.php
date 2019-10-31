@@ -107,7 +107,7 @@ require 'database2.php'
                     echo "
                     <div class='fifth'>
                     <p>$name</p>
-                    <img src='$name.jpg' class='round margin-bottom' alt='$name' style='width:90%'>
+                    <img src='$name.jpg' class='round margin-bottom' alt='$name' style='width:95%'>
                     <p>$bio</p>
                     </div>";
                     }

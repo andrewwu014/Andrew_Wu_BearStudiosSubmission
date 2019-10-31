@@ -82,6 +82,7 @@ require 'database2.php'
         <a href="http://ec2-18-218-144-7.us-east-2.compute.amazonaws.com/~andrew.wu/ACBEdit.php" style="display: none;" id="edit">Edit</a>
     </div>
 
+    <!-- Twitter Feed -->
     <div class="sidebar">
         <a class="twitter-timeline" href="https://twitter.com/elonmusk?ref_src=twsrc%5Etfw">Tweets by elonmusk</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>

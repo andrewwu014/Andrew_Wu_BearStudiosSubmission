@@ -13,16 +13,12 @@ function logout() {
 }
 document.getElementById("logout_btn").addEventListener("click", logout, false);
 
-// function sendEmail() {
-
-// }
-
-// document.getElementById("pay_btn").addEventListener("click", sendEmail, false);
 
 function showDrop() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
+//Closes dropdown menu if user clicks anywhere elseß
 let modal = document.getElementById('ticketModal');
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
@@ -39,12 +35,3 @@ window.onclick = function(event) {
 }
 
 window.onload = logout();
-
-// $(document).ready(function() {
-//     $('#email_btn').click(function() {
-//         $('#emailForm').attr('action',
-//             'mailto:andrewwu014@gmail.com?subject=' +
-//             $('#feedbackName').val() + '&body=' + $('#feedbackContent').val());
-//         $('#emailForm').submit();
-//     });
-// });

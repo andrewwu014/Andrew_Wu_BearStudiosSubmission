@@ -1,8 +1,9 @@
-function regCheck(event) {
+function regCheck() {
     document.getElementById('regModal').style.display = 'none';
-    const username = document.getElementById("user").value; // Get the username from the form
-    const password = document.getElementById("pass").value; // Get the password from the form
-    const data = { 'user': username, 'pass': password };
+    const email = document.getElementById("userEmail").value;
+    const username = document.getElementById("user").value;
+    const password = document.getElementById("pass").value;
+    const data = { 'email': email, 'user': username, 'pass': password };
 
     fetch('ACBRegister.php', {
             method: 'POST',

@@ -63,6 +63,8 @@ require 'database2.php'
                     <h2 class="wide"><i class="margin-right"></i>Register</h2>
                 </header>
                 <div class="container">
+                    <p><label>Email</label></p>
+                    <input class="input border" type="text" placeholder="Enter Email" id="userEmail">
                     <p><label>Username</label></p>
                     <input class="input border" type="text" placeholder="Enter Username" id="user">
                     <p><label>Password</label></p>

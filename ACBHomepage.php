@@ -111,6 +111,7 @@ require 'database2.php'
                     <p>$bio</p>
                     </div>";
                     }
+                    $stmt->close();
                 ?>
             </div>
         </div>
@@ -141,6 +142,7 @@ require 'database2.php'
                             </div>
                             </div>";
                         }
+                        $stmt->close();
                     ?>
                 </div>
             </div>
@@ -161,6 +163,7 @@ require 'database2.php'
                     while($stmt->fetch()){
                         echo $link;
                     }
+                    $stmt->close();
                 ?>
             </div>
         </div>

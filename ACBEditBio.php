@@ -12,7 +12,7 @@ if (!empty($bio)){
         printf("Query Prep Failed: %s\n", $mysqli->error);
         exit;
     }
-    $stmt->bind_param('si', $bio, $name);
+    $stmt->bind_param('ss', $bio, $name);
     $stmt->execute();
     $stmt->close();
 }

@@ -35,30 +35,18 @@ require 'database2.php';
                 while ($stmt->fetch()) {
                     echo "
                     <div class='fifth'>
-                    <p>$name</p>
-                    <img src='$name.jpg' class='round margin-bottom' alt='$name' style='width:60%'>
-                    <p>$bio</p>"
-                    ?> <button class='button black margin-bottom' onclick="document.getElementById('editMemberModal').style.display = 'block'">Edit</button> <?php echo "
+                        <p>$name</p>
+                        <img src='$name.jpg' class='round margin-bottom' alt='$name' style='width:95%'>
+                        <p>$bio</p>
+                        <form method='POST' action='ACBEditBio.php'>
+                            <input type='hidden' name='name' value=$name>
+                            <p>Edit Bio:</p>
+                            <textarea name='bio' rows='4' cols='13' placeholder='Enter new bio:'></textarea><br><br>
+                            <button id='editMem_btn' class='button black margin-bottom'>EDIT</button>
+                        </form>
                     </div>";
-                    echo "
-                    <div id='editMemberModal' class='modal'>
-                        <div class='modal-content animate-top card-4'>
-                            <header class='container teal center padding-32'>
-                                " ?> <span onclick="document.getElementById('editMemberModal').style.display='none'" class='button teal xlarge display-topright'>×</span> <?php echo "
-                                <h2 class='wide'><i class='margin-right'></i>Edit Member Bio</h2>
-                            </header>
-                            <div class='container'>
-                                <form method='POST' action='ACBEditBio.php'>
-                                    <input type='hidden' name='name' value=$name>
-                                    <p style='float:left'>Edit Bio:</p>
-                                    <input class='input border' type='text' name='bio' placeholder='Enter new bio'>
-                                    <button id='editMem_btn' class='button block teal padding-16 section right'>MAKE CHANGES</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    ";
-                } 
+                }
+                $stmt->close();
             ?>
         </div>
     </div>
@@ -79,40 +67,30 @@ require 'database2.php';
                     $stmt->bind_result($sid, $name, $year, $month, $day, $ticketPrice, $time);
                     while ($stmt->fetch()) {
                         $date = date('h:i: a', strtotime($time));
+                        $id = $sid;
                         echo "
-                        <div id='editShowModal' class='modal'>
-                            <div class='modal-content animate-top card-4'>
-                                <header class='container teal center padding-32'>
-                                    "?> <span onclick="document.getElementById('editShowModal').style.display='none'" class='button teal xlarge display-topright'>×</span> <?php echo "
-                                    <h2 class='wide'><i class='margin-right'></i>Edit Event</h2>
-                                </header>
-                                <div class='container'>
-                                    <form method='POST' action='ACBEditShow.php'>
-                                        <p>Edit Location:</p>
-                                        <input class='input border' type='text' name='name' placeholder='Enter name'>
-                                        <p>Edit date and time:</p>
-                                        <input type='datetime-local' name='datetime'>
-                                        <p>Edit Ticket Price:</p>
-                                        <input class='input border' type='number' name='ticketPrice' placeholder='Enter price'>
-                                        <input type='hidden' name='showID' value=$sid>
-                                        <button type='submit' id='editShow_btn' class='button block teal padding-16 section right'>MAKE CHANGES</button>
-                                    </form>
-                                </div>
+                        <div class='third margin-bottom'>
+                            <div class='container white'>
+                                <p><b>$name</b></p>
+                                <p><b>Tickets: $$ticketPrice</b></p>
+                                <input type='hidden' id=$sid></input>
+                                <p class='opacity'>$month/$day/$year</p>
+                                <p class='opacity'>$date</p>
+                                <form method='POST' action='ACBEditShow.php'>
+                                    <p>Edit Location:</p>
+                                    <input class='input border' type='text' name='name' placeholder='Enter name'>
+                                    <p>Edit date and time:</p>
+                                    <input class='input border' type='datetime-local' name='datetime'>
+                                    <p>Edit Ticket Price:</p>
+                                    <input class='input border' type='number' name='ticketPrice' placeholder='Enter price'>
+                                    <input type='hidden' name='showID' value=$sid><br>
+                                    <button type='submit' id='editShow_btn' class='button black margin-bottom'>MAKE CHANGES</button>
+                                </form>
                             </div>
                         </div>
                         ";
-                        echo "
-                        <div class='third margin-bottom'>
-                        <div class='container white'>
-                            <p><b>$name</b></p>
-                            <p><b>Tickets: $$ticketPrice</b></p>
-                            <input type='hidden' id=$sid></input>
-                            <p class='opacity'>$month/$day/$year</p>
-                            <p class='opacity'>$date</p>
-                            " ?> <button class='button black margin-bottom' onclick="document.getElementById('editShowModal').style.display = 'block'">Edit</button> <?php echo "
-                        </div>
-                        </div>";
-                    } 
+                    }
+                    $stmt->close();
                 ?>
             </div>
         </div>
